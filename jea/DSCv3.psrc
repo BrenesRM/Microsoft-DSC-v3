@@ -3,7 +3,7 @@
     GUID = 'd2e8b7f1-e1e0-43ce-a4db-912808c32493'
 
     # Author of this role capability
-    Author = 'Antigravity'
+    Author = 'TEST_Admin_USER'
 
     # Description of the function of this role capability
     Description = 'Restricted access to Microsoft DSC v3 for non-admin users.'
@@ -23,3 +23,4 @@
     # Modules to import
     ModulesToImport = @()
 }
+
