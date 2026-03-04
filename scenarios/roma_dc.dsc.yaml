@@ -1,0 +1,37 @@
+$schema: https://aka.ms/dsc/schemas/v3/bundled/config/document.json
+resources:
+  - name: DiskD
+    type: Microsoft.Windows/Storage/Disk
+    properties:
+      id: "1"
+      partitionStyle: GPT
+      ensure: Present
+
+  - name: VolumeD
+    type: Microsoft.Windows/Storage/Volume
+    properties:
+      driveLetter: D
+      fileSystem: NTFS
+      size: 10GB
+      ensure: Present
+    dependsOn:
+      - DiskD
+
+  - name: InstallWord
+    type: Microsoft.WinGet/Package
+    properties:
+      id: Microsoft.Office
+      ensure: Present
+
+  - name: OpenPort135
+    type: Microsoft.Windows/Network/FirewallRule
+    properties:
+      name: AllowRPC135
+      displayName: "Allow RPC Port 135"
+      description: "Allows inbound traffic on RPC port 135 for Domain Controller"
+      protocol: TCP
+      localPort:
+        - "135"
+      action: Allow
+      direction: Inbound
+      ensure: Present

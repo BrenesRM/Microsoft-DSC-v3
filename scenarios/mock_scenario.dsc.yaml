@@ -1,0 +1,15 @@
+$schema: https://aka.ms/dsc/schemas/v3/bundled/config/document.json
+resources:
+  - name: CreateDemoDirectory
+    type: Microsoft.Windows/Directory
+    properties:
+      path: C:\temp\dsc_demo
+      ensure: Present
+  - name: CreateDemoFile
+    type: Microsoft.Windows/File
+    properties:
+      path: C:\temp\dsc_demo\hello.txt
+      contents: "Hello from Microsoft DSC v3!"
+      ensure: Present
+    dependsOn:
+      - CreateDemoDirectory

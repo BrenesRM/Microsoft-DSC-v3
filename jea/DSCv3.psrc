@@ -1,0 +1,25 @@
+@{
+    # ID which uniquely identifies this role capability
+    GUID = 'd2e8b7f1-e1e0-43ce-a4db-912808c32493'
+
+    # Author of this role capability
+    Author = 'Antigravity'
+
+    # Description of the function of this role capability
+    Description = 'Restricted access to Microsoft DSC v3 for non-admin users.'
+
+    # Function definitions that should be visible to the user
+    VisibleFunctions = @()
+
+    # External commands (e.g. executables) that should be visible to the user
+    VisibleExternalCommands = @(
+        'C:\Users\*\AppData\Local\dsc\dsc.exe',
+        'C:\Program Files\dsc\dsc.exe'
+    )
+
+    # Alias definitions that should be visible to the user
+    VisibleAliases = @()
+
+    # Modules to import
+    ModulesToImport = @()
+}

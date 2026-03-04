@@ -1,0 +1,24 @@
+@{
+    # Identifier for this session configuration
+    SchemaVersion = '2.0.0'
+
+    # ID which uniquely identifies this session configuration
+    GUID = '4192bff0-e1e0-43ce-a4db-912808c32493'
+
+    # Session type defaults to "DefaultShell" unless "RestrictedRemoteServer" is used
+    SessionType = 'RestrictedRemoteServer'
+
+    # Execution policy for the session
+    ExecutionPolicy = 'RemoteSigned'
+
+    # User account under which the session will run
+    RunAsVirtualAccount = $true
+
+    # Role definitions
+    RoleDefinitions = @{
+        'BUILTIN\Users' = @{ RoleCapabilities = 'DSCv3' }
+    }
+
+    # Path to the transcript log directory
+    TranscriptDirectory = 'C:\Transcripts\JEA_DSC'
+}
